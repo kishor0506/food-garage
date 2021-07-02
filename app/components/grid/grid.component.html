@@ -1,0 +1,105 @@
+<div class="alert alert-dark" role="alert">
+  <h2>Child-Parent</h2>
+</div>
+<table class="table table-dark">
+    <thead>
+      
+      <th>Id</th>
+      <th>CarName</th>
+      <th>Brand</th>
+    </thead>
+    <tr *ngFor="let c of cars;">
+      <td>{{c.id}}</td>
+      <td>{{c.carname}}</td>
+      <td>{{c.Brand}}</td>
+    </tr>
+    
+  </table>
+
+
+  <div class="alert alert-dark" role="alert">
+    <h2>product</h2>
+  </div>
+  <table class="table table-hover table-dark">
+      <thead>
+        
+        <th>Product_ID</th>
+        <th>product_name</th>
+        <th>Description</th>
+        <th>Cost</th>
+        <th>Type</th>
+      </thead>
+      <tr *ngFor="let p of products;">
+        <td>{{p.pid}}</td>
+        <td>{{p.prdname}}</td>
+        <td>{{p.description}}</td>
+        <td>{{p.cost}}</td>
+        <td>{{p.type}}</td>
+      </tr>
+      
+    </table>
+<div>
+  <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Product ID</label>
+ 
+  <input type="text"#pid class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter id">
+</div>
+<div class="form-group">
+  <label for="exampleInputEmail1">Product Name</label>
+  
+  <input type="text"#prdname class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter product name">
+</div>
+<div class="form-group">
+  <label for="exampleInputEmail1">Description</label>
+
+  <input type="text"  #description class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter description">
+</div>
+<div class="form-group">
+  <label for="exampleInputEmail1">Cost</label>
+ 
+  <input type="text"#cost class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter cost">
+  <button class="btn btn-dark" (click)="handleadd(pid.value,prdname.value,description.value,cost.value)">Add</button>
+</div>
+</form>
+
+</div>
+
+<table class="table table-hover table-dark">
+  <thead>
+    
+    <th>Product_ID</th>
+    <th>product_name</th>
+    <th>Description</th>
+    <th>Cost</th>
+    <th>Type</th>
+  </thead>
+  <tr *ngFor="let p of products;">
+    <td *ngIf="p.type=='odd'">{{p.pid}}</td>
+    <td *ngIf="p.type=='odd'">{{p.prdname}}</td>
+    <td *ngIf="p.type=='odd'">{{p.description}}</td>
+    <td *ngIf="p.type=='odd'">{{p.cost}}</td>
+    <td *ngIf="p.type=='odd'">{{p.type}}</td>
+   
+  </tr>
+  
+</table>
+<table class="table table-hover table-dark">
+  <thead>
+    
+    <th>Product_ID</th>
+    <th>product_name</th>
+    <th>Description</th>
+    <th>Cost</th>
+    <th>Type</th>
+  </thead>
+  <tr *ngFor="let p of products;">
+    <td *ngIf="p.type=='even'">{{p.pid}}</td>
+    <td *ngIf="p.type=='even'">{{p.prdname}}</td>
+    <td *ngIf="p.type=='even'">{{p.description}}</td>
+    <td *ngIf="p.type=='even'">{{p.cost}}</td>
+    <td *ngIf="p.type=='even'">{{p.type}}</td>
+   
+  </tr>
+  
+</table>

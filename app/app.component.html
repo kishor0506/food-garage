@@ -1,0 +1,154 @@
+
+<div class="container-fluid">
+  <div class="alert alert-dark" role="alert">
+
+    <h2>One way data binding</h2>
+    <h3>Brand name</h3>
+    <input type="text" [value]="title" />
+  </div>
+  <div class="alert alert-dark" role="alert">
+    <h2>Two way data binding</h2>
+    <h3>car name</h3>
+    <input type="text" [(ngModel)]="car" />
+    <h2>{{car}}</h2>
+
+  </div>
+  <div class="alert alert-dark" role="alert">
+    <h2>Event handling</h2>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Carcolor</h5>
+          <p class="card-text">Event Handling with text box's key entry.</p>
+          <input type="text" [value]="Carcolor" (input)="handlecolor($event)" />
+        </div>
+        <h3>{{Carcolor}}</h3>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Model</h5>
+          <p class="card-text">Event Handling with text box's key enter.</p>
+          <input type="text" [value]="model" (keyup.enter)="handlemodel($event)" />
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Variant</h5>
+          <p class="card-text">Event Handling with text box's key shift+A</p>
+          <input type="text" [value]="variant" (keyup.shift.A)="handlevar($event)" />
+        </div>
+
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Location</h5>
+          <p class="card-text">Event Handling with button.</p>
+          <input type="text" [(ngModel)]="location" class="form-control">
+          <button class="btn btn-dark" (click)="locname(location)">Click</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="alert alert-dark" role="alert">
+    <h2>Template Reference</h2>
+  </div>
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Text Box</h5>
+        <input type="text" #name class="form-control">
+        <button class="btn btn-dark" (click)="studentname(name.value)">Submit</button>
+      </div>
+    </div>
+  </div>
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Text Area</h5>
+        <textarea class="form-control" #txtarea ></textarea>
+        <button class="btn btn-dark" (click)="studentit(txtarea.value)">Submit</button>
+      </div>
+    </div>
+  </div>
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Drop Down</h5>
+        <select (change)="selectChangeHandler($event)" class="form-control">
+          <option value="karate">karate</option>
+          <option value="dance">dance</option>
+          <option value="singing">singing</option>
+          <option value="mime">mime</option>
+          <option value="badminton">badminton</option>
+           <option value="swimming">swimming</option>
+        </select>
+        <p><span>You selected: </span><b>{{selectedCourse }}</b></p>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <app-grid [cars]="mycar" [products]="myprd"(eaddprd)="handleaddprd($event)"></app-grid>
+  </div>
+  <div class="alert alert-dark" role="alert">
+    <h2>List of Countries</h2>
+  </div>
+
+<select (change)="displaySelectedDropDown($event)"  class="form-control">
+  
+  <option value="india">India</option>
+  
+  <option value="usa">USA</option>
+  <option value="uk">UK</option>
+</select>
+<br>
+<div *ngIf="myCountries =='india' ">
+<div class="row">
+  <div class="col-lg-6">
+      <h4>Name</h4>
+      <input type="text" class="form-control" placeholder="Enter Your Name">
+  </div>
+  <div class="col-lg-6">
+    <h4>Adhar</h4>
+    <input type="number" class="form-control" placeholder="Enter Your Adhar Number">
+  </div>
+</div>
+</div>
+<div *ngIf="myCountries =='usa'">
+<div class="row">
+  <div class="col-lg-6">
+      <h4>SSN</h4>
+      <input type="text" class="form-control" placeholder="Enter Your SSN">
+  </div>
+  <div class="col-lg-6">
+    <h4>Passport Number</h4>
+    <input type="text" class="form-control" placeholder="Enter Your Passport Number">
+  </div>
+</div>
+</div>
+<div *ngIf="myCountries =='uk'">
+<div class="row">
+  <div class="col-lg-6">
+      <h4>Password</h4>
+      <input type="password" class="form-control" placeholder="Enter Your Password">
+  </div>
+
+</div>
+</div>
+</div>
